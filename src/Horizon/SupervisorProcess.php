@@ -1,8 +1,8 @@
 <?php
 
-namespace Gecche\Multidomain\Horizon;
+namespace LaravelRussian\Multidomain\Horizon;
 
-use Gecche\Multidomain\Horizon\MasterSupervisorCommands\AddSupervisor;
+use LaravelRussian\Multidomain\Horizon\MasterSupervisorCommands\AddSupervisor;
 use Laravel\Horizon\Contracts\HorizonCommandQueue;
 use Laravel\Horizon\MasterSupervisor;
 use Laravel\Horizon\SupervisorProcess as BaseSupervisorProcess;
@@ -10,7 +10,7 @@ use Laravel\Horizon\SupervisorProcess as BaseSupervisorProcess;
 /**
  * Class SupervisorProcess
  *
- * @package Gecche\Multidomain\Horizon
+ * @package LaravelRussian\Multidomain\Horizon
  */
 class SupervisorProcess extends BaseSupervisorProcess
 {

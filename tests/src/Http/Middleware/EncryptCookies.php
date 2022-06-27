@@ -1,6 +1,6 @@
 <?php
 
-namespace Gecche\Multidomain\Tests\Http\Middleware;
+namespace LaravelRussian\Multidomain\Tests\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
 

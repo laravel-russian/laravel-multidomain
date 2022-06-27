@@ -1,8 +1,11 @@
-<?php namespace Gecche\Multidomain\Foundation\Bootstrap;
+<?php
+
+namespace LaravelRussian\Multidomain\Foundation\Bootstrap;
 
 use Illuminate\Contracts\Foundation\Application;
 
-class DetectDomain {
+class DetectDomain
+{
 
 	/**
 	 * Bootstrap the given application.
@@ -13,12 +16,11 @@ class DetectDomain {
 	public function bootstrap(Application $app)
 	{
 
-        //Detect the domain
+		//Detect the domain
 		$app->detectDomain();
 
-        //Overrides the storage path if the domain stoarge path exists
-        //$app->useStoragePath($app->domainStoragePath());
+		//Overrides the storage path if the domain stoarge path exists
+		//$app->useStoragePath($app->domainStoragePath());
 
 	}
-
 }

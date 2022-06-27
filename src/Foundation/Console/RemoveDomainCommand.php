@@ -1,10 +1,13 @@
-<?php namespace Gecche\Multidomain\Foundation\Console;
+<?php
+
+namespace LaravelRussian\Multidomain\Foundation\Console;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Arr;
 use Config;
 
-class RemoveDomainCommand extends GeneratorCommand {
+class RemoveDomainCommand extends GeneratorCommand
+{
 
     use DomainCommandTrait;
 
@@ -23,7 +26,8 @@ class RemoveDomainCommand extends GeneratorCommand {
     /*
      * Se il file di ambiente esiste già viene semplicemente sovrascirtto con i nuovi valori passati dal comando (update)
      */
-    public function handle() {
+    public function handle()
+    {
         $this->domain = $this->argument('domain');
 
         /*
@@ -57,7 +61,6 @@ class RemoveDomainCommand extends GeneratorCommand {
      */
     protected function getStub()
     {
-
     }
 
     protected function deleteDomainEnvFile()
@@ -68,14 +71,16 @@ class RemoveDomainCommand extends GeneratorCommand {
         }
     }
 
-    public function deleteDomainStorageDirs() {
+    public function deleteDomainStorageDirs()
+    {
         $path = $this->getDomainStoragePath($this->domain);
         if ($this->files->exists($path)) {
             $this->files->deleteDirectory($path);
         }
     }
 
-    protected function removeDomainToConfigFile($config) {
+    protected function removeDomainToConfigFile($config)
+    {
         $domains = Arr::get($config, 'domains', []);
         if (array_key_exists($this->domain, $domains)) {
             unset($domains[$this->domain]);
@@ -83,8 +88,4 @@ class RemoveDomainCommand extends GeneratorCommand {
         $config['domains'] = $domains;
         return $config;
     }
-
-
-
-
 }

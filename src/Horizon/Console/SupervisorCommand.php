@@ -1,14 +1,14 @@
 <?php
 
-namespace Gecche\Multidomain\Horizon\Console;
+namespace LaravelRussian\Multidomain\Horizon\Console;
 
-use Gecche\Multidomain\Horizon\SupervisorOptions;
+use LaravelRussian\Multidomain\Horizon\SupervisorOptions;
 use Laravel\Horizon\Console\SupervisorCommand as BaseSupervisorCommand;
 
 /**
  * Class SupervisorCommand
  *
- * @package Gecche\Multidomain\Horizon\Console
+ * @package LaravelRussian\Multidomain\Horizon\Console
  */
 class SupervisorCommand extends BaseSupervisorCommand
 {
@@ -20,8 +20,8 @@ class SupervisorCommand extends BaseSupervisorCommand
     protected function supervisorOptions()
     {
         $backoff = $this->hasOption('backoff')
-                    ? $this->option('backoff')
-                    : $this->option('delay');
+            ? $this->option('backoff')
+            : $this->option('delay');
 
         return new SupervisorOptions(
             $this->argument('name'),

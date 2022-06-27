@@ -1,12 +1,12 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: gecche
+ * User: laravel-russian
  * Date: 01/10/2019
  * Time: 11:15
  */
 
-namespace Gecche\Multidomain\Tests;
+namespace LaravelRussian\Multidomain\Tests;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
@@ -83,7 +83,7 @@ class ArtisanTestCase extends TestCase
             copy($file,$this->laravelAppPath.'/database/migrations/'.$relativeFile);
         }
 
-        $process = new Process(['php', $this->laravelAppPath.'/artisan', 'vendor:publish', '--provider="Gecche\Multidomain\Foundation\Providers\DomainConsoleServiceProvider"']);
+        $process = new Process(['php', $this->laravelAppPath.'/artisan', 'vendor:publish', '--provider="LaravelRussian\Multidomain\Foundation\Providers\DomainConsoleServiceProvider"']);
         $process->run();
 
         parent::setUp();
@@ -119,7 +119,7 @@ class ArtisanTestCase extends TestCase
 
     /*
      * TEST FOR A BASIC COMMAND
-     * We created a very simple "name" command (Gecche\Multidomain\Tests\Console\Commands\NameCommand) which simply displays the
+     * We created a very simple "name" command (LaravelRussian\Multidomain\Tests\Console\Commands\NameCommand) which simply displays the
      * text in the APP_NAME environment variable.
      * The default .env file containts APP_NAME=Laravel
      * First we create a new domain site1.test and we update his .env with APP_NAME=LARAVELTEST
@@ -290,8 +290,8 @@ class ArtisanTestCase extends TestCase
        * In this test we check that queues listeners applied to distinct domains work with the jobs pushed from
        * the corresponding domain and that the queues where they are pushed are those configured in the .env files.
        *
-       * The job Gecche\Multidomain\Tests\Jobs\AppNameJob simply put in a file the name of the queue and the env(APP_NAME) value.
-       * We push that job using an artisan Gecche\Multidomain\Tests\Console\Commands\QueuePush (queue_push) command which simply push the job in the queue.
+       * The job LaravelRussian\Multidomain\Tests\Jobs\AppNameJob simply put in a file the name of the queue and the env(APP_NAME) value.
+       * We push that job using an artisan LaravelRussian\Multidomain\Tests\Console\Commands\QueuePush (queue_push) command which simply push the job in the queue.
        *
        */
     public function testQueueListenCommand() {

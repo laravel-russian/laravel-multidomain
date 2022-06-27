@@ -1,6 +1,6 @@
 <?php
 
-namespace Gecche\Multidomain\Foundation;
+namespace LaravelRussian\Multidomain\Foundation;
 
 use Illuminate\Support\Env;
 use Illuminate\Support\Arr;
@@ -50,7 +50,7 @@ class Application extends \Illuminate\Foundation\Application
     {
         $this->domainParams = $domainParams;
         $environmentPath = $environmentPath ?? $basePath;
-        $this->useEnvironmentPath(rtrim($environmentPath,'\/'));
+        $this->useEnvironmentPath(rtrim($environmentPath, '\/'));
 
         parent::__construct($basePath);
     }
@@ -66,7 +66,7 @@ class Application extends \Illuminate\Foundation\Application
 
         $args = isset($_SERVER['argv']) ? $_SERVER['argv'] : null;
 
-        $domainDetectionFunctionWeb = Arr::get($this->domainParams,'domain_detection_function_web');
+        $domainDetectionFunctionWeb = Arr::get($this->domainParams, 'domain_detection_function_web');
         $domainDetector = new DomainDetector($domainDetectionFunctionWeb);
         $fullDomain = $domainDetector->detect($args);
         list($domain_scheme, $domain_name, $domain_port) = $domainDetector->split($fullDomain);
@@ -150,21 +150,21 @@ class Application extends \Illuminate\Foundation\Application
 
         $domain = $domain ?? $this['domain'] ?? '';
 
-        $envFile = $this->searchForEnvFileDomain(explode('.',$domain));
+        $envFile = $this->searchForEnvFileDomain(explode('.', $domain));
 
         return $envFile;
-
     }
 
-    protected function searchForEnvFileDomain($tokens = []) {
+    protected function searchForEnvFileDomain($tokens = [])
+    {
         if (count($tokens) == 0) {
             return '.env';
         }
 
-        $file = '.env.' . implode('.',$tokens);
+        $file = '.env.' . implode('.', $tokens);
         return file_exists(env_path($file))
             ? $file
-            : $this->searchForEnvFileDomain(array_splice($tokens,1));
+            : $this->searchForEnvFileDomain(array_splice($tokens, 1));
     }
 
     /**
@@ -185,12 +185,11 @@ class Application extends \Illuminate\Foundation\Application
             $domain = $this['domain'];
         }
 
-        $domainStoragePath = $this->searchForDomainStoragePath(parent::storagePath(),explode('.',$domain));
+        $domainStoragePath = $this->searchForDomainStoragePath(parent::storagePath(), explode('.', $domain));
 
         $this->domainStoragePath = $domainStoragePath;
 
-            return $domainStoragePath;
-
+        return $domainStoragePath;
     }
 
 
@@ -205,9 +204,9 @@ class Application extends \Illuminate\Foundation\Application
 
         if (is_null($domain)) {
             $domain = $this['domain'];
-    }
+        }
 
-        return rtrim(parent::storagePath() . DIRECTORY_SEPARATOR . domain_sanitized($domain),DIRECTORY_SEPARATOR);
+        return rtrim(parent::storagePath() . DIRECTORY_SEPARATOR . domain_sanitized($domain), DIRECTORY_SEPARATOR);
     }
 
     /*
@@ -220,21 +219,22 @@ class Application extends \Illuminate\Foundation\Application
 
         $storagePath = $this->storagePath ?: ($this->domainStoragePath ?: $this->domainStoragePath($domain));
 
-        return $storagePath.($path != '' ? DIRECTORY_SEPARATOR.$path : '');
+        return $storagePath . ($path != '' ? DIRECTORY_SEPARATOR . $path : '');
     }
 
 
-    protected function searchForDomainStoragePath($storagePath, $tokens = []) {
+    protected function searchForDomainStoragePath($storagePath, $tokens = [])
+    {
         if (count($tokens) == 0) {
             return $storagePath;
         }
 
-        $tokensAsDomainString = implode('.',$tokens);
+        $tokensAsDomainString = implode('.', $tokens);
 
         $domainStoragePath = rtrim($storagePath . DIRECTORY_SEPARATOR . domain_sanitized($tokensAsDomainString), "\/");
         return file_exists($domainStoragePath)
             ? $domainStoragePath
-            : $this->searchForDomainStoragePath($storagePath,array_splice($tokens,1));
+            : $this->searchForDomainStoragePath($storagePath, array_splice($tokens, 1));
     }
 
 
@@ -285,7 +285,6 @@ class Application extends \Illuminate\Foundation\Application
         return Str::startsWith($env, '/')
             ? $env
             : $this->basePath($env);
-
     }
 
     /**
@@ -301,9 +300,9 @@ class Application extends \Illuminate\Foundation\Application
 
         $this->checkDomainDetection();
 
-        $defaultWithoutPhpExt = substr($default,0,-4);
+        $defaultWithoutPhpExt = substr($default, 0, -4);
 
-        return $defaultWithoutPhpExt.'-'.domain_sanitized($this['domain']).'.php';
+        return $defaultWithoutPhpExt . '-' . domain_sanitized($this['domain']) . '.php';
     }
 
 
@@ -327,6 +326,5 @@ class Application extends \Illuminate\Foundation\Application
         }
 
         return $domains;
-
     }
 }

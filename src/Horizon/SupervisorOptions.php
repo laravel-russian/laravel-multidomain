@@ -1,6 +1,6 @@
 <?php
 
-namespace Gecche\Multidomain\Horizon;
+namespace LaravelRussian\Multidomain\Horizon;
 
 use Laravel\Horizon\SupervisorOptions as BaseSupervisorOptions;
 
@@ -9,7 +9,7 @@ use Laravel\Horizon\SupervisorOptions as BaseSupervisorOptions;
  *
  * @property string $domain
  *
- * @package Gecche\Multidomain\Horizon
+ * @package LaravelRussian\Multidomain\Horizon
  */
 class SupervisorOptions extends BaseSupervisorOptions
 {
@@ -39,27 +39,28 @@ class SupervisorOptions extends BaseSupervisorOptions
      * @param  int  $parentId
      * @param string $domain
      */
-    public function __construct($name,
-                                $connection,
-                                $queue = null,
-                                $workersName = 'default',
-                                $balance = 'off',
-                                $backoff = 0,
-                                $maxTime = 0,
-                                $maxJobs = 0,
-                                $maxProcesses = 1,
-                                $minProcesses = 1,
-                                $memory = 128,
-                                $timeout = 60,
-                                $sleep = 3,
-                                $maxTries = 0,
-                                $force = false,
-                                $nice = 0,
-                                $balanceCooldown = 3,
-                                $balanceMaxShift = 1,
-                                $parentId = 0,
-                                string $domain = 'localhost')
-    {
+    public function __construct(
+        $name,
+        $connection,
+        $queue = null,
+        $workersName = 'default',
+        $balance = 'off',
+        $backoff = 0,
+        $maxTime = 0,
+        $maxJobs = 0,
+        $maxProcesses = 1,
+        $minProcesses = 1,
+        $memory = 128,
+        $timeout = 60,
+        $sleep = 3,
+        $maxTries = 0,
+        $force = false,
+        $nice = 0,
+        $balanceCooldown = 3,
+        $balanceMaxShift = 1,
+        $parentId = 0,
+        string $domain = 'localhost'
+    ) {
         parent::__construct($name, $connection, $queue, $workersName, $balance, $backoff, $maxTime, $maxJobs, $maxProcesses, $minProcesses, $memory, $timeout, $sleep, $maxTries, $force, $nice, $balanceCooldown, $balanceMaxShift, $parentId);
 
         $this->domain = $domain;

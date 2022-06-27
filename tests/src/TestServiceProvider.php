@@ -1,4 +1,4 @@
-<?php namespace Gecche\Multidomain\Tests;
+<?php namespace LaravelRussian\Multidomain\Tests;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 

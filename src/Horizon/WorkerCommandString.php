@@ -1,6 +1,6 @@
 <?php
 
-namespace Gecche\Multidomain\Horizon;
+namespace LaravelRussian\Multidomain\Horizon;
 
 use Laravel\Horizon\WorkerCommandString as BaseWorkerCommandString;
 use Laravel\Horizon\SupervisorOptions;
@@ -8,7 +8,7 @@ use Laravel\Horizon\SupervisorOptions;
 /**
  * Class WorkerCommandString
  *
- * @package Gecche\Multidomain\Horizon
+ * @package LaravelRussian\Multidomain\Horizon
  */
 class WorkerCommandString extends BaseWorkerCommandString
 {

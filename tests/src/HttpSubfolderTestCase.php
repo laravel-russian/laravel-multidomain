@@ -1,14 +1,14 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: gecche
+ * User: laravel-russian
  * Date: 01/10/2019
  * Time: 11:15
  */
 
-namespace Gecche\Multidomain\Tests;
+namespace LaravelRussian\Multidomain\Tests;
 
-use Gecche\Multidomain\Foundation\Application;
+use LaravelRussian\Multidomain\Foundation\Application;
 use Illuminate\Filesystem\Filesystem;
 use Orchestra\Testbench\BrowserKit\TestCase;
 use Symfony\Component\Process\Process;
@@ -79,7 +79,7 @@ class HttpSubfolderTestCase extends HttpTestCase
         }
         copy(__DIR__ . '/../.env.example', $this->laravelAppPath.'/'.$this->envPath.'/.env');
 
-        $process = new Process(['php', $this->laravelAppPath.'/artisan_sub', 'vendor:publish', '--provider="Gecche\Multidomain\Foundation\Providers\DomainConsoleServiceProvider"']);
+        $process = new Process(['php', $this->laravelAppPath.'/artisan_sub', 'vendor:publish', '--provider="LaravelRussian\Multidomain\Foundation\Providers\DomainConsoleServiceProvider"']);
         $process->run();
 
         $process = new Process(['php', $this->laravelAppPath.'/artisan_sub', 'domain:remove', $this->site1, '--force']);

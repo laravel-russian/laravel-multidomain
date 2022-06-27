@@ -1,13 +1,14 @@
 <?php
-namespace Gecche\Multidomain\Queue;
 
-use Gecche\Multidomain\Queue\Console\ListenCommand as QueueListenCommand;
+namespace LaravelRussian\Multidomain\Queue;
+
+use LaravelRussian\Multidomain\Queue\Console\ListenCommand as QueueListenCommand;
 use Illuminate\Queue\QueueServiceProvider as BaseQueueServiceProvider;
 
 /**
  * Class QueueServiceProvider
  *
- * @package Gecche\Multidomain\Queue
+ * @package LaravelRussian\Multidomain\Queue
  */
 class QueueServiceProvider extends BaseQueueServiceProvider
 {

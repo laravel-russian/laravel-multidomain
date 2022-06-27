@@ -16,7 +16,7 @@ define('LARAVEL_START', microtime(true));
 
 require __DIR__.'/../../../autoload.php';
 
-$app = new Gecche\Multidomain\Foundation\Application(
+$app = new LaravelRussian\Multidomain\Foundation\Application(
     realpath(__DIR__)
 );
 
@@ -33,12 +33,12 @@ $app = new Gecche\Multidomain\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    Gecche\Multidomain\Foundation\Http\Kernel::class
+    LaravelRussian\Multidomain\Foundation\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    Gecche\Multidomain\Tests\Console\Kernel::class
+    LaravelRussian\Multidomain\Tests\Console\Kernel::class
 );
 
 $app->singleton(
@@ -57,7 +57,7 @@ $app->singleton(
 |
 */
 
-$app->register(\Gecche\Multidomain\Foundation\Providers\DomainConsoleServiceProvider::class);
+$app->register(\LaravelRussian\Multidomain\Foundation\Providers\DomainConsoleServiceProvider::class);
 
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 

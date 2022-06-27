@@ -1,9 +1,12 @@
-<?php namespace Gecche\Multidomain\Console;
+<?php
+
+namespace LaravelRussian\Multidomain\Console;
 
 use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputOption;
 
-class Application extends \Illuminate\Console\Application {
+class Application extends \Illuminate\Console\Application
+{
 
 	/**
 	 * Get the default input definitions for the applications.
@@ -30,6 +33,4 @@ class Application extends \Illuminate\Console\Application {
 
 		return new InputOption('--domain', null, InputOption::VALUE_OPTIONAL, $message);
 	}
-
-
 }

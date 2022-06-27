@@ -1,15 +1,18 @@
-<?php namespace Gecche\Multidomain\Foundation\Console;
+<?php
+
+namespace LaravelRussian\Multidomain\Foundation\Console;
 
 use Illuminate\Console\Command;
 
-class DomainCommand extends Command {
+class DomainCommand extends Command
+{
 
 	/**
 	 * The console command name.
 	 *
 	 * @var string
 	 */
-    protected $signature = 'domain';
+	protected $signature = 'domain';
 
 	/**
 	 * The console command description.
@@ -25,7 +28,6 @@ class DomainCommand extends Command {
 	 */
 	public function handle()
 	{
-		$this->line('<info>Current application domain:</info> <comment>'.$this->laravel['domain'].  "--" . $this->laravel['domain_port'] . "--" . $this->laravel['domain_scheme'].'</comment>');
+		$this->line('<info>Current application domain:</info> <comment>' . $this->laravel['domain'] .  "--" . $this->laravel['domain_port'] . "--" . $this->laravel['domain_scheme'] . '</comment>');
 	}
-
 }

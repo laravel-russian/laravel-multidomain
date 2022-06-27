@@ -1,4 +1,6 @@
-<?php namespace Gecche\Multidomain\Foundation\Console;
+<?php
+
+namespace LaravelRussian\Multidomain\Foundation\Console;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Facades\Config;
@@ -54,7 +56,7 @@ class UpdateEnvDomainCommand extends GeneratorCommand
         $envFiles = [
             env_path('.env'),
         ];
-        $domainList = Config::get('domain.domains',[]);
+        $domainList = Config::get('domain.domains', []);
 
 
         foreach ($domainList as $domain) {
@@ -65,15 +67,14 @@ class UpdateEnvDomainCommand extends GeneratorCommand
         }
 
         return $envFiles;
-
     }
 
 
     protected function updateDomainEnvFiles()
     {
         $domainValues = json_decode($this->option("domain_values"), true);
-//        $this->line("<info>".var_dump($this->option("domain_values"))."</info>");
-//        $this->line("<info>".var_dump($domainValues)."</info>");
+        //        $this->line("<info>".var_dump($this->option("domain_values"))."</info>");
+        //        $this->line("<info>".var_dump($domainValues)."</info>");
 
         if (!is_array($domainValues)) {
             $domainValues = array();
@@ -101,8 +102,5 @@ class UpdateEnvDomainCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-
     }
-
-
 }

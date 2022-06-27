@@ -1,14 +1,14 @@
 <?php
 
-namespace Gecche\Multidomain\Queue\Console;
+namespace LaravelRussian\Multidomain\Queue\Console;
 
-use Gecche\Multidomain\Queue\ListenerOptions;
+use LaravelRussian\Multidomain\Queue\ListenerOptions;
 use Illuminate\Queue\Console\ListenCommand as BaseListenCommand;
 
 /**
  * Class ListenCommand
  *
- * @package Gecche\Multidomain\Queue\Console
+ * @package LaravelRussian\Multidomain\Queue\Console
  */
 class ListenCommand extends BaseListenCommand
 {
@@ -33,5 +33,4 @@ class ListenCommand extends BaseListenCommand
             $this->option('domain')
         );
     }
-
 }

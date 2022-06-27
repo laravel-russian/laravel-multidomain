@@ -1,10 +1,10 @@
 <?php
 
-namespace Gecche\Multidomain\Horizon;
+namespace LaravelRussian\Multidomain\Horizon;
 
-use Gecche\Multidomain\Horizon\Console\HorizonCommand;
-use Gecche\Multidomain\Horizon\Console\SupervisorCommand;
-use Gecche\Multidomain\Horizon\Console\TimeoutCommand;
+use LaravelRussian\Multidomain\Horizon\Console\HorizonCommand;
+use LaravelRussian\Multidomain\Horizon\Console\SupervisorCommand;
+use LaravelRussian\Multidomain\Horizon\Console\TimeoutCommand;
 use Laravel\Horizon\Console\HorizonCommand as BaseHorizonCommand;
 use Laravel\Horizon\Console\SupervisorCommand as BaseSupervisorCommand;
 use Laravel\Horizon\Console\TimeoutCommand as BaseTimeoutCommand;
@@ -13,7 +13,7 @@ use Laravel\Horizon\HorizonApplicationServiceProvider as BaseHorizonApplicationS
 /**
  * Class HorizonApplicationServiceProvider
  *
- * @package Gecche\Multidomain\Horizon
+ * @package LaravelRussian\Multidomain\Horizon
  */
 class HorizonApplicationServiceProvider extends BaseHorizonApplicationServiceProvider
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Gecche\Multidomain\Tests\Http\Middleware;
+namespace LaravelRussian\Multidomain\Tests\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
 

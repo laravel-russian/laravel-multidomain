@@ -1,13 +1,13 @@
 <?php
 
-namespace Gecche\Multidomain\Queue;
+namespace LaravelRussian\Multidomain\Queue;
 
 use Illuminate\Queue\ListenerOptions as BaseListenerOptions;
 
 /**
  * Class ListenerOptions
  *
- * @package Gecche\Multidomain\Queue
+ * @package LaravelRussian\Multidomain\Queue
  */
 class ListenerOptions extends BaseListenerOptions
 {

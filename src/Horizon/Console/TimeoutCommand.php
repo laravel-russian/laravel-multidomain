@@ -1,15 +1,15 @@
 <?php
 
-namespace Gecche\Multidomain\Horizon\Console;
+namespace LaravelRussian\Multidomain\Horizon\Console;
 
 use Laravel\Horizon\MasterSupervisor;
-use Gecche\Multidomain\Horizon\ProvisioningPlan;
+use LaravelRussian\Multidomain\Horizon\ProvisioningPlan;
 use Laravel\Horizon\Console\TimeoutCommand as BaseTimeoutCommand;
 
 /**
  * Class TimeoutCommand
  *
- * @package Gecche\Multidomain\Horizon\Console
+ * @package LaravelRussian\Multidomain\Horizon\Console
  */
 class TimeoutCommand extends BaseTimeoutCommand
 {

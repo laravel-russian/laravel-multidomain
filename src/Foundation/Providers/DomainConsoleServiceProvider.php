@@ -1,14 +1,17 @@
-<?php namespace Gecche\Multidomain\Foundation\Providers;
+<?php
+
+namespace LaravelRussian\Multidomain\Foundation\Providers;
 
 use App;
-use Gecche\Multidomain\Foundation\Console\ListDomainCommand;
-use Gecche\Multidomain\Foundation\Console\RemoveDomainCommand;
+use LaravelRussian\Multidomain\Foundation\Console\ListDomainCommand;
+use LaravelRussian\Multidomain\Foundation\Console\RemoveDomainCommand;
 use Illuminate\Support\ServiceProvider;
-use Gecche\Multidomain\Foundation\Console\DomainCommand;
-use Gecche\Multidomain\Foundation\Console\AddDomainCommand;
-use Gecche\Multidomain\Foundation\Console\UpdateEnvDomainCommand;
+use LaravelRussian\Multidomain\Foundation\Console\DomainCommand;
+use LaravelRussian\Multidomain\Foundation\Console\AddDomainCommand;
+use LaravelRussian\Multidomain\Foundation\Console\UpdateEnvDomainCommand;
 
-class DomainConsoleServiceProvider extends ServiceProvider {
+class DomainConsoleServiceProvider extends ServiceProvider
+{
 
     protected $defer = false;
 
@@ -34,11 +37,10 @@ class DomainConsoleServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app->alias('artisan',\Gecche\Multidomain\Console\Application::class);
+        $this->app->alias('artisan', \LaravelRussian\Multidomain\Console\Application::class);
 
 
-        foreach ($this->commands as $command)
-        {
+        foreach ($this->commands as $command) {
             $this->{"register{$command}Command"}();
         }
 
@@ -49,13 +51,13 @@ class DomainConsoleServiceProvider extends ServiceProvider {
             "command.domain.update_env",
             "command.domain.list"
         );
-
     }
 
 
-    public function boot() {
+    public function boot()
+    {
         $this->publishes([
-            __DIR__.'/../../config/domain.php' => config_path('domain.php'),
+            __DIR__ . '/../../config/domain.php' => config_path('domain.php'),
         ]);
     }
 
@@ -67,8 +69,7 @@ class DomainConsoleServiceProvider extends ServiceProvider {
      */
     protected function registerDomainCommand()
     {
-        $this->app->singleton('command.domain', function()
-        {
+        $this->app->singleton('command.domain', function () {
             return new DomainCommand;
         });
     }
@@ -80,8 +81,7 @@ class DomainConsoleServiceProvider extends ServiceProvider {
      */
     protected function registerAddDomainCommand()
     {
-        $this->app->singleton('command.domain.add', function($app)
-        {
+        $this->app->singleton('command.domain.add', function ($app) {
             return new AddDomainCommand($app['files']);
         });
     }
@@ -93,8 +93,7 @@ class DomainConsoleServiceProvider extends ServiceProvider {
      */
     protected function registerRemoveDomainCommand()
     {
-        $this->app->singleton('command.domain.remove', function($app)
-        {
+        $this->app->singleton('command.domain.remove', function ($app) {
             return new RemoveDomainCommand($app['files']);
         });
     }
@@ -106,8 +105,7 @@ class DomainConsoleServiceProvider extends ServiceProvider {
      */
     protected function registerUpdateEnvDomainCommand()
     {
-        $this->app->singleton('command.domain.update_env', function($app)
-        {
+        $this->app->singleton('command.domain.update_env', function ($app) {
             return new UpdateEnvDomainCommand($app['files']);
         });
     }
@@ -119,8 +117,7 @@ class DomainConsoleServiceProvider extends ServiceProvider {
      */
     protected function registerListDomainCommand()
     {
-        $this->app->singleton('command.domain.list', function($app)
-        {
+        $this->app->singleton('command.domain.list', function ($app) {
             return new ListDomainCommand($app['files']);
         });
     }

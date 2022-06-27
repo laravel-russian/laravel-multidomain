@@ -1,14 +1,14 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: gecche
+ * User: laravel-russian
  * Date: 01/10/2019
  * Time: 11:15
  */
 
-namespace Gecche\Multidomain\Tests;
+namespace LaravelRussian\Multidomain\Tests;
 
-use Gecche\Multidomain\Foundation\Application;
+use LaravelRussian\Multidomain\Foundation\Application;
 
 class CommandsSubfolderTestCase extends CommandsTestCase
 {

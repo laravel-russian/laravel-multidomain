@@ -1,4 +1,6 @@
-<?php namespace Gecche\Multidomain\Foundation\Console;
+<?php
+
+namespace LaravelRussian\Multidomain\Foundation\Console;
 
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -25,7 +27,7 @@ trait DomainCommandTrait
             $domain = $this->domain;
         }
 
-        return rtrim(env_path('.env.' . $domain),'.');
+        return rtrim(env_path('.env.' . $domain), '.');
     }
 
     /**
@@ -73,20 +75,30 @@ trait DomainCommandTrait
         $finalConfig = call_user_func_array([$this, $methodName], [$config]);
 
         $modelConfigStub = str_replace(
-            '{{$configArray}}', var_export($finalConfig, true), $configStub
+            '{{$configArray}}',
+            var_export($finalConfig, true),
+            $configStub
         );
 
         $modelConfigStub = str_replace(
-            'return array (', 'return [', $modelConfigStub
+            'return array (',
+            'return [',
+            $modelConfigStub
         );
         $modelConfigStub = str_replace(
-            ');', ' ];', $modelConfigStub
+            ');',
+            ' ];',
+            $modelConfigStub
         );
         $modelConfigStub = str_replace(
-            ["\narray (", "\n  array (", "\n    array (", "\n      array ("], '[', $modelConfigStub
+            ["\narray (", "\n  array (", "\n    array (", "\n      array ("],
+            '[',
+            $modelConfigStub
         );
         $modelConfigStub = str_replace(
-            ["),"], "],", $modelConfigStub
+            ["),"],
+            "],",
+            $modelConfigStub
         );
 
         $this->files->put($filename, $modelConfigStub);
@@ -114,9 +126,8 @@ trait DomainCommandTrait
                 continue;
             }
 
-            $value = substr($line, strlen($lineArray[0])+1);
+            $value = substr($line, strlen($lineArray[0]) + 1);
             $varsArray[$lineArray[0]] = trim($value);
-
         }
         return $varsArray;
     }
@@ -140,6 +151,4 @@ trait DomainCommandTrait
         }
         return $contents;
     }
-
-
 }

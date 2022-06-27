@@ -1,28 +1,30 @@
-<?php namespace Gecche\Multidomain\Foundation;
+<?php
+
+namespace LaravelRussian\Multidomain\Foundation;
 
 use Closure;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
-class DomainDetector {
+class DomainDetector
+{
 
-    /**
-     * @var Closure|null
-     *
-     * Function for customizing the domain detection process in the web scenario
-     */
-    protected $domainDetectionFunctionWeb = false;
+	/**
+	 * @var Closure|null
+	 *
+	 * Function for customizing the domain detection process in the web scenario
+	 */
+	protected $domainDetectionFunctionWeb = false;
 
 
-    /**
-     * DomainDetector constructor.
-     */
-    public function __construct($domainDetectionFunctionWeb = null)
-    {
+	/**
+	 * DomainDetector constructor.
+	 */
+	public function __construct($domainDetectionFunctionWeb = null)
+	{
 
-        $this->domainDetectionFunctionWeb = $domainDetectionFunctionWeb;
-
-    }
+		$this->domainDetectionFunctionWeb = $domainDetectionFunctionWeb;
+	}
 
 
 	/**
@@ -34,12 +36,9 @@ class DomainDetector {
 	 */
 	public function detect($consoleArgs = null)
 	{
-        if ($consoleArgs)
-		{
+		if ($consoleArgs) {
 			return $this->detectConsoleDomain($consoleArgs);
-		}
-		else
-		{
+		} else {
 			return $this->detectWebDomain();
 		}
 	}
@@ -52,12 +51,11 @@ class DomainDetector {
 	 */
 	protected function detectWebDomain()
 	{
-	    if ($this->domainDetectionFunctionWeb instanceof Closure) {
-	        return ($this->domainDetectionFunctionWeb)();
-        }
+		if ($this->domainDetectionFunctionWeb instanceof Closure) {
+			return ($this->domainDetectionFunctionWeb)();
+		}
 		//return filter_input(INPUT_SERVER,'SERVER_NAME');
-            		return Arr::get($_SERVER,'SERVER_NAME');
-
+		return Arr::get($_SERVER, 'SERVER_NAME');
 	}
 
 	/**
@@ -72,12 +70,9 @@ class DomainDetector {
 		// First we will check if an environment argument was passed via console arguments
 		// and if it was that automatically overrides as the environment. Otherwise, we
 		// will check the environment as a "web" request like a typical HTTP request.
-		if ( ! is_null($value = $this->getDomainArgument($args)))
-		{
+		if (!is_null($value = $this->getDomainArgument($args))) {
 			return head(array_slice(explode('=', $value), 1));
-		}
-		else
-		{
+		} else {
 			return $this->detectWebDomain();
 		}
 	}
@@ -90,37 +85,36 @@ class DomainDetector {
 	 */
 	protected function getDomainArgument(array $args)
 	{
-        return Arr::first($args, function ($value) {
-            return Str::startsWith($value, '--domain');
-        });
+		return Arr::first($args, function ($value) {
+			return Str::startsWith($value, '--domain');
+		});
 	}
 
-    /*
+	/*
      * Split the domain name into scheme, name and port
      */
-    public function split($domain) {
-        $domain = $domain ?? '';
+	public function split($domain)
+	{
+		$domain = $domain ?? '';
 
-        if (Str::startsWith($domain,'https://')) {
-            $scheme = 'https';
-            $domain = substr($domain,8);
-        } elseif (Str::startsWith($domain,'http://')) {
-            $scheme = 'http';
-            $domain = substr($domain,7);
-        } else {
-            $scheme = 'http';
-        }
+		if (Str::startsWith($domain, 'https://')) {
+			$scheme = 'https';
+			$domain = substr($domain, 8);
+		} elseif (Str::startsWith($domain, 'http://')) {
+			$scheme = 'http';
+			$domain = substr($domain, 7);
+		} else {
+			$scheme = 'http';
+		}
 
-        $semicolon = strpos($domain,':');
-        if ($semicolon === false) {
-            $port = ($scheme == 'http') ? 80 : 443;
-        } else {
-            $port = substr($domain,$semicolon+1);
-            $domain = substr($domain,0,-(strlen($port)+1));
-        }
+		$semicolon = strpos($domain, ':');
+		if ($semicolon === false) {
+			$port = ($scheme == 'http') ? 80 : 443;
+		} else {
+			$port = substr($domain, $semicolon + 1);
+			$domain = substr($domain, 0, - (strlen($port) + 1));
+		}
 
-        return array($scheme,$domain,$port);
-
-    }
-
+		return array($scheme, $domain, $port);
+	}
 }

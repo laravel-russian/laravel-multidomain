@@ -1,6 +1,6 @@
-<?php namespace Gecche\Multidomain\Tests\Console\Commands;
+<?php namespace LaravelRussian\Multidomain\Tests\Console\Commands;
 
-use Gecche\Multidomain\Tests\Jobs\AppNameJob;
+use LaravelRussian\Multidomain\Tests\Jobs\AppNameJob;
 use Illuminate\Bus\Queueable;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Queue;

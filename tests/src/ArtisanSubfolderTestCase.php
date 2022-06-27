@@ -1,12 +1,12 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: gecche
+ * User: laravel-russian
  * Date: 01/10/2019
  * Time: 11:15
  */
 
-namespace Gecche\Multidomain\Tests;
+namespace LaravelRussian\Multidomain\Tests;
 
 class ArtisanSubfolderTestCase extends ArtisanTestCase
 {

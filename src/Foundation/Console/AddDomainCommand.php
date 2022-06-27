@@ -1,4 +1,6 @@
-<?php namespace Gecche\Multidomain\Foundation\Console;
+<?php
+
+namespace LaravelRussian\Multidomain\Foundation\Console;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Facades\Config;
@@ -103,8 +105,6 @@ class AddDomainCommand extends GeneratorCommand
 
 
         $this->createRecursiveDomainStorageDirs($rootPath, $path, $storageDirs);
-
-
     }
 
     protected function createRecursiveDomainStorageDirs($rootPath, $path, $dirs)
@@ -122,10 +122,10 @@ class AddDomainCommand extends GeneratorCommand
             $fullRootPath = $rootPath . DIRECTORY_SEPARATOR . $subdir;
             $this->createRecursiveDomainStorageDirs($fullRootPath, $fullPath, $subsubdirs);
         }
-
     }
 
-    protected function addDomainToConfigFile($config) {
+    protected function addDomainToConfigFile($config)
+    {
         $domains = Arr::get($config, 'domains', []);
         if (!array_key_exists($this->domain, $domains)) {
             $domains[$this->domain] = $this->domain;
@@ -136,9 +136,4 @@ class AddDomainCommand extends GeneratorCommand
 
         return $config;
     }
-
-
-
-
-
 }

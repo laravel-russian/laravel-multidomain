@@ -1,12 +1,12 @@
 <?php
 
-namespace Gecche\Multidomain\Tests\Http;
+namespace LaravelRussian\Multidomain\Tests\Http;
 
-use Gecche\Multidomain\Foundation\Http\Kernel as HttpKernel;
-use Gecche\Multidomain\Tests\Http\Middleware\EncryptCookies;
-use Gecche\Multidomain\Tests\Http\Middleware\RedirectIfAuthenticated;
-use Gecche\Multidomain\Tests\Http\Middleware\TrimStrings;
-use Gecche\Multidomain\Tests\Http\Middleware\VerifyCsrfToken;
+use LaravelRussian\Multidomain\Foundation\Http\Kernel as HttpKernel;
+use LaravelRussian\Multidomain\Tests\Http\Middleware\EncryptCookies;
+use LaravelRussian\Multidomain\Tests\Http\Middleware\RedirectIfAuthenticated;
+use LaravelRussian\Multidomain\Tests\Http\Middleware\TrimStrings;
+use LaravelRussian\Multidomain\Tests\Http\Middleware\VerifyCsrfToken;
 
 //use Illuminate\Foundation\Http\Kernel as HttpKernel;
 

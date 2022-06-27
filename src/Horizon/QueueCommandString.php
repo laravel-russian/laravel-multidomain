@@ -1,6 +1,6 @@
 <?php
 
-namespace Gecche\Multidomain\Horizon;
+namespace LaravelRussian\Multidomain\Horizon;
 
 use Laravel\Horizon\QueueCommandString as BaseQueueCommandString;
 use Laravel\Horizon\SupervisorOptions as BaseSupervisorOptions;
@@ -8,7 +8,7 @@ use Laravel\Horizon\SupervisorOptions as BaseSupervisorOptions;
 /**
  * Class QueueCommandString
  *
- * @package Gecche\Multidomain\Horizon
+ * @package LaravelRussian\Multidomain\Horizon
  */
 class QueueCommandString extends BaseQueueCommandString
 {
@@ -21,9 +21,16 @@ class QueueCommandString extends BaseQueueCommandString
      */
     public static function toOptionsString(BaseSupervisorOptions $options, $paused = false)
     {
-        $string = sprintf('--backoff=%s --max-time=%s --max-jobs=%s --memory=%s --queue="%s" --sleep=%s --timeout=%s --tries=%s --domain="%s"',
-            $options->backoff, $options->maxTime, $options->maxJobs, $options->memory,
-            $options->queue, $options->sleep, $options->timeout, $options->maxTries,
+        $string = sprintf(
+            '--backoff=%s --max-time=%s --max-jobs=%s --memory=%s --queue="%s" --sleep=%s --timeout=%s --tries=%s --domain="%s"',
+            $options->backoff,
+            $options->maxTime,
+            $options->maxJobs,
+            $options->memory,
+            $options->queue,
+            $options->sleep,
+            $options->timeout,
+            $options->maxTries,
             (($options instanceof SupervisorOptions) ? $options->domain : 'localhost')
         );
 

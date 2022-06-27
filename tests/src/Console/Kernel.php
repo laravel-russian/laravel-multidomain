@@ -1,11 +1,11 @@
 <?php
 
-namespace Gecche\Multidomain\Tests\Console;
+namespace LaravelRussian\Multidomain\Tests\Console;
 
-use Gecche\Multidomain\Tests\Console\Commands\NameCommand;
-use Gecche\Multidomain\Tests\Console\Commands\QueuePushCommand;
+use LaravelRussian\Multidomain\Tests\Console\Commands\NameCommand;
+use LaravelRussian\Multidomain\Tests\Console\Commands\QueuePushCommand;
 use Illuminate\Console\Scheduling\Schedule;
-use Gecche\Multidomain\Foundation\Console\Kernel as ConsoleKernel;
+use LaravelRussian\Multidomain\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {

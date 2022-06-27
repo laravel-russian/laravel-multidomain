@@ -1,5 +1,6 @@
 <?php
-namespace Gecche\Multidomain\Queue;
+
+namespace LaravelRussian\Multidomain\Queue;
 
 use Illuminate\Queue\ListenerOptions as BaseListenerOptions;
 use Illuminate\Queue\Listener as BaseListener;
@@ -9,7 +10,7 @@ use Symfony\Component\Process\Process;
 /**
  * Class Listener
  *
- * @package Gecche\Multidomain\Queue
+ * @package LaravelRussian\Multidomain\Queue
  */
 class Listener extends BaseListener
 {
@@ -40,7 +41,11 @@ class Listener extends BaseListener
         }
 
         return new Process(
-            $command, $this->commandPath, null, null, $options->timeout
+            $command,
+            $this->commandPath,
+            null,
+            null,
+            $options->timeout
         );
     }
 
@@ -51,7 +56,7 @@ class Listener extends BaseListener
      * @param  ListenerOptions  $options
      * @return array
      */
-    protected function addDomain(array $command, ListenerOptions $options) : array
+    protected function addDomain(array $command, ListenerOptions $options): array
     {
         return array_merge($command, ["--domain={$options->domain}"]);
     }

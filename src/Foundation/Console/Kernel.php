@@ -1,19 +1,22 @@
-<?php namespace Gecche\Multidomain\Foundation\Console;
+<?php
 
-use Gecche\Multidomain\Console\Application as Artisan;
+namespace LaravelRussian\Multidomain\Foundation\Console;
+
+use LaravelRussian\Multidomain\Console\Application as Artisan;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 
-class Kernel extends \Illuminate\Foundation\Console\Kernel {
+class Kernel extends \Illuminate\Foundation\Console\Kernel
+{
 
-	/**
-	 * The bootstrap classes for the application.
-	 *
-	 * @var array
-	 */
+    /**
+     * The bootstrap classes for the application.
+     *
+     * @var array
+     */
     protected $bootstrappers = [
-        \Gecche\Multidomain\Foundation\Bootstrap\DetectDomain::class,
+        \LaravelRussian\Multidomain\Foundation\Bootstrap\DetectDomain::class,
         \Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables::class,
         \Illuminate\Foundation\Bootstrap\LoadConfiguration::class,
         \Illuminate\Foundation\Bootstrap\HandleExceptions::class,
@@ -31,8 +34,7 @@ class Kernel extends \Illuminate\Foundation\Console\Kernel {
      */
     protected function getArtisan()
     {
-        if (is_null($this->artisan))
-        {
+        if (is_null($this->artisan)) {
             return $this->artisan = (new Artisan($this->app, $this->events, $this->app->version()))
                 ->resolveCommands($this->commands)
                 ->setContainerCommandLoader();
@@ -59,7 +61,7 @@ class Kernel extends \Illuminate\Foundation\Console\Kernel {
             });
             echo $argvDomain . "----";
             if (!$argvDomain) {
-                $paramDomain = Arr::get($parameters,'--domain');
+                $paramDomain = Arr::get($parameters, '--domain');
                 echo $paramDomain . "++++";
                 if ($paramDomain) {
 
@@ -73,5 +75,4 @@ class Kernel extends \Illuminate\Foundation\Console\Kernel {
 
         return $this->getArtisan()->call($command, $parameters, $outputBuffer);
     }
-
 }

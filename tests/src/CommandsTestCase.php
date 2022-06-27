@@ -1,21 +1,21 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: gecche
+ * User: laravel-russian
  * Date: 01/10/2019
  * Time: 11:15
  */
 
-namespace Gecche\Multidomain\Tests;
+namespace LaravelRussian\Multidomain\Tests;
 
-use Gecche\Multidomain\Foundation\Application;
-use Gecche\Multidomain\Foundation\Providers\DomainConsoleServiceProvider;
-use Gecche\Multidomain\Tests\Http\Kernel as HttpKernel;
+use LaravelRussian\Multidomain\Foundation\Application;
+use LaravelRussian\Multidomain\Foundation\Providers\DomainConsoleServiceProvider;
+use LaravelRussian\Multidomain\Tests\Http\Kernel as HttpKernel;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Config;
-use Gecche\Multidomain\Tests\Console\Kernel as ConsoleKernel;
+use LaravelRussian\Multidomain\Tests\Console\Kernel as ConsoleKernel;
 
 class CommandsTestCase extends \Orchestra\Testbench\TestCase
 {
@@ -56,7 +56,7 @@ class CommandsTestCase extends \Orchestra\Testbench\TestCase
 
         copy(__DIR__ . '/../.env.example',env_path('.env'));
 
-        $this->artisan('vendor:publish',['--provider' => 'Gecche\Multidomain\Foundation\Providers\DomainConsoleServiceProvider']);
+        $this->artisan('vendor:publish',['--provider' => 'LaravelRussian\Multidomain\Foundation\Providers\DomainConsoleServiceProvider']);
 
 
     }
