@@ -45,14 +45,14 @@ class ListDomainCommand extends Command
          */
 		$outputType = $this->option('output');
 		$domains = $this->buildResult($domains);
-		switch (strtolower(trim($outputType ?? 'txt'))) {
+		switch (strtolower(trim($outputType ?? 'json'))) {
 			default:
-			case 'txt':
-				$this->outputAsText($domains);
-				break;
-			case 'table':
-				$this->outputAsTable($domains);
-				break;
+				// case 'txt':
+				// 	$this->outputAsText($domains);
+				// 	break;
+				// case 'table':
+				// 	$this->outputAsTable($domains);
+				// 	break;
 			case 'json':
 				$this->outputAsJson($domains);
 				break;
@@ -64,10 +64,10 @@ class ListDomainCommand extends Command
 		$this->output->writeln(json_encode($domains));
 	}
 
-	protected function outputAsTable(array $domains)
-	{
-		$this->output->table(array_keys(head($domains)), $domains);
-	}
+	// protected function outputAsTable(array $domains)
+	// {
+	// 	$this->output->table(array_keys(head($domains)), $domains);
+	// }
 
 	protected function buildResult(array $domains): array
 	{
