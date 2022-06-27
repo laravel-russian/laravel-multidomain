@@ -2,25 +2,18 @@
 
 return [
     'env_stub' => '.env',
+    'web_domain_var' => 'HTTP_HOST', // HTTP_HOST SERVER_NAME
     'storage_dirs' => [
         'app' => [
-            'public' => [
-
-            ],
+            'public' => [],
         ],
         'framework' => [
-            'cache' => [
-            ],
-            'testing' => [
-            ],
-            'sessions' => [
-            ],
-            'views' => [
-            ],
+            'cache' => [],
+            'testing' => [],
+            'sessions' => [],
+            'views' => [],
         ],
-        'logs' => [
-        ],
+        'logs' => [],
     ],
-    'domains' => [
-    ],
+    'domains' => [],
 ];
