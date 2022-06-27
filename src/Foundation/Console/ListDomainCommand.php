@@ -61,7 +61,7 @@ class ListDomainCommand extends Command
 
 	protected function outputAsJson(array $domains)
 	{
-		$this->output->writeln(json_encode($domains));
+		$this->output->writeln(json_encode($domains, JSON_PRETTY_PRINT));
 	}
 
 	// protected function outputAsTable(array $domains)
